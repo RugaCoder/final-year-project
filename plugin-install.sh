@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #Author @Frances Ruganyumisa
-#For Final Year project bash script to install dependencies to install nagios plugins
+#For Final Year project bash script to install dependencies required to install nagios plugins
 
 
 echo "This script installs necessary dependencies to run nagios plugins"
@@ -20,7 +20,7 @@ echo "Congratulations if all the dependencies matched"
 
 cd ..
 cd fping-4.2/
-./configure
+./configure 
 make
 sudo make install
 cd ..
@@ -51,4 +51,13 @@ sudo apt-get update
 sudo apt-get install postgresql
 
 
+#install mysql server if it does not exist 
+sudo apt install mysql-community-server
+
+
 # Install the plugin
+cd nagios-plugins/
+sudo ./tools/setup
+sudo ./configure --enable-perl-modules --with-mysql --enable-libtap
+sudo make
+sudo make install
