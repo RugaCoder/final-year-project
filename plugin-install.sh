@@ -6,6 +6,9 @@
 
 echo "This script installs necessary dependencies to run nagios plugins"
 
+
+sudo apt-get install -y autoconf gcc libc6 libmcrypt-dev make libssl-dev wget bc gawk dc build-essential snmp libnet-snmp-perl gettext
+
 cd net-snmp-5.8/
 
 echo "Configuring environment to install snmp utils follow the prompts"
@@ -46,3 +49,6 @@ sudo apt-get update
 # Install the latest version of PostgreSQL.
 # If you want a specific version, use 'postgresql-12' or similar instead of 'postgresql':
 sudo apt-get install postgresql
+
+
+# Install the plugin
